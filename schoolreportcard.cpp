@@ -127,7 +127,7 @@ int main()
      //now r array contains the id of students sorted acc to mark!
      //we just have to output students mark acc to r array
      for(i=0;i<40;i++) cout<<"~ ";
-     cout<<"\t\t\t\***RANKS*** ";
+     cout<<"\t\t\t***RANKS*** ";
      for(i=0;i<40;i++) cout<<"~ ";
      cout<<endl;
      for(i=nos-1, j=1;i>=0;i--,j++) cout<<"Rank "<<j<<" : "<<"Student "<<r[i]+1<<" Consolidated marks: "<<s[r[i]].total<<endl;
