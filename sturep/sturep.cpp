@@ -50,82 +50,82 @@ char grade;
 int rollno;
  void input(){
           //Inputing Unit 1
-f('x');
-     cout<<endl;
- 	 cout<<"\tENTER ROLLNO: ";
- 	 cin>>rollno;
-     cout<<"\t\t\t  *****ENTER UNIT 1 MARKS*****"<<endl;
-     cout<<"\tEnglish: ";
-     do{cin>>unit1[0];}
-     while(unit1[0]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-     cout<<endl;
-     cout<<"\tPhysics: ";
-     do{cin>>unit1[1];}
-     while(unit1[1]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     cout<<"\tChemistry: ";
-     do{cin>>unit1[2];}
-     while(unit1[2]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     cout<<"\tMaths: ";
-     do{cin>>unit1[3];}
-     while(unit1[3]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     cout<<"\tComputer: ";
-     do{cin>>unit1[4];}
-     while(unit1[4]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     //Inputing Unit 2
-f('x');
-     cout<<endl;
-     cout<<"\t\t\t  *****ENTER UNIT 2 MARKS*****"<<endl;
-     cout<<"\tEnglish: ";
-     do{cin>>unit2[0];}
-     while(unit2[0]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     cout<<"\tPhysics: ";
-     do{cin>>unit2[1];}
-     while(unit2[1]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     cout<<"\tChemistry: ";
-     do{cin>>unit2[2];}
-     while(unit2[2]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     cout<<"\tMaths: ";
-     do{cin>>unit2[3];}
-     while(unit2[3]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     cout<<"\tComputer: ";
-     do{cin>>unit2[4];}
-     while(unit2[4]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
-        cout<<endl;
-     //INputing Terminal
-f('x');
-     cout<<endl;
-     cout<<"\t\t\t  *****ENTER TERMINAL MARKS*****"<<endl;
-     cout<<"\tEnglish: ";
-     do{cin>>terminal[0];}
-     while(terminal[0]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
-     cout<<endl;
-     cout<<"\tPhysics: ";
-     do{cin>>terminal[1];}
-     while(terminal[1]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
-     cout<<endl;
-     cout<<"\tChemistry: ";
-     do{cin>>terminal[2];}
-     while(terminal[2]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
-     cout<<endl;
-     cout<<"\tMaths: ";
-     do{cin>>terminal[3];}
-     while(terminal[3]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
-     cout<<endl;
-     cout<<"\tComputer: ";
-     do{cin>>terminal[4];}
-     while(terminal[4]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
-     cout<<endl;
-     //iNPUT OVER :)
-     compute();
-f('x');cout<<endl;g();cout<<"\n\tPress enter to return to the menu";g();c();
+	f('x');
+	     cout<<endl;
+	 	 cout<<"\tENTER ROLLNO: ";
+	 	 cin>>rollno;
+	     cout<<"\t\t\t  *****ENTER UNIT 1 MARKS*****"<<endl;
+	     cout<<"\tEnglish: ";
+	     do{cin>>unit1[0];}
+	     while(unit1[0]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	     cout<<endl;
+	     cout<<"\tPhysics: ";
+	     do{cin>>unit1[1];}
+	     while(unit1[1]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     cout<<"\tChemistry: ";
+	     do{cin>>unit1[2];}
+	     while(unit1[2]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     cout<<"\tMaths: ";
+	     do{cin>>unit1[3];}
+	     while(unit1[3]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     cout<<"\tComputer: ";
+	     do{cin>>unit1[4];}
+	     while(unit1[4]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     //Inputing Unit 2
+	f('x');
+	     cout<<endl;
+	     cout<<"\t\t\t  *****ENTER UNIT 2 MARKS*****"<<endl;
+	     cout<<"\tEnglish: ";
+	     do{cin>>unit2[0];}
+	     while(unit2[0]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     cout<<"\tPhysics: ";
+	     do{cin>>unit2[1];}
+	     while(unit2[1]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     cout<<"\tChemistry: ";
+	     do{cin>>unit2[2];}
+	     while(unit2[2]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     cout<<"\tMaths: ";
+	     do{cin>>unit2[3];}
+	     while(unit2[3]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     cout<<"\tComputer: ";
+	     do{cin>>unit2[4];}
+	     while(unit2[4]>25 && cout<<"\tMarks must be less than 25.\n\tRe-enter: ");
+	        cout<<endl;
+	     //INputing Terminal
+	f('x');
+	     cout<<endl;
+	     cout<<"\t\t\t  *****ENTER TERMINAL MARKS*****"<<endl;
+	     cout<<"\tEnglish: ";
+	     do{cin>>terminal[0];}
+	     while(terminal[0]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
+	     cout<<endl;
+	     cout<<"\tPhysics: ";
+	     do{cin>>terminal[1];}
+	     while(terminal[1]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
+	     cout<<endl;
+	     cout<<"\tChemistry: ";
+	     do{cin>>terminal[2];}
+	     while(terminal[2]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
+	     cout<<endl;
+	     cout<<"\tMaths: ";
+	     do{cin>>terminal[3];}
+	     while(terminal[3]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
+	     cout<<endl;
+	     cout<<"\tComputer: ";
+	     do{cin>>terminal[4];}
+	     while(terminal[4]>100 && cout<<"\tMarks must be less than 100.\n\tRe-enter: ");
+	     cout<<endl;
+	     //iNPUT OVER :)
+	     compute();
+	f('x');cout<<endl;g();cout<<"\n\tPress enter to return to the menu";g();c();
 }
 void compute(){
           tu1=tu2=tt=total=0;
@@ -144,68 +144,68 @@ void output(){
 	f('x');
 	cout<<"\n\tROLLNO :"<<rollno<<endl;
 	f('x');
-cout<<"\n\t\t\t     ***** UNIT 1 MARKS *****"<<endl;
-     cout<<"\n\tEnglish: ";
-     	cout<<unit1[0];
-     cout<<endl;
-    	 cout<<"\n\tPhysics: ";
-     cout<<unit1[1];
-        cout<<endl;
-     cout<<"\n\tChemistry: ";
-     cout<<unit1[2];
-        cout<<endl;
-     cout<<"\n\tMaths: ";
-     cout<<unit1[3];
-        cout<<endl;
-     cout<<"\n\tComputer: ";
-     cout<<unit1[4];
+	cout<<"\n\t\t\t     ***** UNIT 1 MARKS *****"<<endl;
+	     cout<<"\n\tEnglish: ";
+	     	cout<<unit1[0];
+	     cout<<endl;
+	    	 cout<<"\n\tPhysics: ";
+	     cout<<unit1[1];
+	        cout<<endl;
+	     cout<<"\n\tChemistry: ";
+	     cout<<unit1[2];
+	        cout<<endl;
+	     cout<<"\n\tMaths: ";
+	     cout<<unit1[3];
+	        cout<<endl;
+	     cout<<"\n\tComputer: ";
+	     cout<<unit1[4];
 
 
-cout<<endl;f('x');
-cout<<"\n\t\t\t     ***** UNIT 2 MARKS *****"<<endl;
-     cout<<"\n\tEnglish: ";
-     	cout<<unit2[0];
-     cout<<endl;
-     	cout<<"\n\tPhysics: ";
-     cout<<unit2[1];
-        cout<<endl;
-     cout<<"\n\tChemistry: ";
-     cout<<unit2[2];
-        cout<<endl;
-     cout<<"\n\tMaths: ";
-     cout<<unit2[3];
-        cout<<endl;
-     cout<<"\n\tComputer: ";
-     cout<<unit2[4];
+	cout<<endl;f('x');
+	cout<<"\n\t\t\t     ***** UNIT 2 MARKS *****"<<endl;
+	     cout<<"\n\tEnglish: ";
+	     	cout<<unit2[0];
+	     cout<<endl;
+	     	cout<<"\n\tPhysics: ";
+	     cout<<unit2[1];
+	        cout<<endl;
+	     cout<<"\n\tChemistry: ";
+	     cout<<unit2[2];
+	        cout<<endl;
+	     cout<<"\n\tMaths: ";
+	     cout<<unit2[3];
+	        cout<<endl;
+	     cout<<"\n\tComputer: ";
+	     cout<<unit2[4];
 
 
-cout<<endl;f('x');
-cout<<"\n\t\t\t     ***** TERMINAL MARKS *****"<<endl;
-     cout<<"\n\tEnglish: ";
-     	cout<<terminal[0];
-     cout<<endl;
-     	cout<<"\n\tPhysics: ";
-     cout<<terminal[1];
-        cout<<endl;
-     cout<<"\n\tChemistry: ";
-     cout<<terminal[2];
-        cout<<endl;
-     cout<<"\n\tMaths: ";
-     cout<<terminal[3];
-        cout<<endl;
-     cout<<"\n\tComputer: ";
-     cout<<terminal[4];
+	cout<<endl;f('x');
+	cout<<"\n\t\t\t     ***** TERMINAL MARKS *****"<<endl;
+	     cout<<"\n\tEnglish: ";
+	     	cout<<terminal[0];
+	     cout<<endl;
+	     	cout<<"\n\tPhysics: ";
+	     cout<<terminal[1];
+	        cout<<endl;
+	     cout<<"\n\tChemistry: ";
+	     cout<<terminal[2];
+	        cout<<endl;
+	     cout<<"\n\tMaths: ";
+	     cout<<terminal[3];
+	        cout<<endl;
+	     cout<<"\n\tComputer: ";
+	     cout<<terminal[4];
 
 
-cout<<endl;f('x');
-cout<<endl;
+	cout<<endl;f('x');
+	cout<<endl;
 
 
-cout<<"\n\tTOTAL: "<<total;
-cout<<"\n\tGRADE: "<<grade;
+	cout<<"\n\tTOTAL: "<<total;
+	cout<<"\n\tGRADE: "<<grade;
 
 
-cout<<endl;f('x');
+	cout<<endl;f('x');
 }
 };
 
@@ -299,6 +299,7 @@ void display(){
 			cout<<endl;
 
 		}
+		getchar();
 		}
 	}
 	else
@@ -309,46 +310,46 @@ void display(){
 	c();
 }	
 int signin(details d){
-cout<<endl;
-system("clear");
-f('x');
-cout<<"\n\t\t\t\t      LOGIN:"<<endl;
-f('x');
-		char us[30], pass[30];
-		int logsucc = 0;
-		cout<<"\n\n\tEnter your username: ";
-		cin>>us;
-		int usermatch=0, match=0;
-		for(int i=0;i<5;i++){
-			if(strcmp(d.username[i], us)==0){
-				usermatch=1;
-				break;
+	cout<<endl;
+	system("clear");
+	f('x');
+	cout<<"\n\t\t\t\t      LOGIN:"<<endl;
+	f('x');
+			char us[30], pass[30];
+			int logsucc = 0;
+			cout<<"\n\n\tEnter your username: ";
+			cin>>us;
+			int usermatch=0, match=0;
+			for(int i=0;i<5;i++){
+				if(strcmp(d.username[i], us)==0){
+					usermatch=1;
+					break;
+				}
 			}
-		}
-		if(!usermatch){
-			cout<<"\n\tYou are not authorized to use this database!"<<endl<<endl;
-			f('x');
-			getchar();
-			getchar();
-			system("clear");
-			return signin(d);
-		}
-		else {
-			cout<<"\n\tEnter master pass: ";
-			cin>>pass;
-			if(strcmp(d.pass, pass)==0){
-				match=1;
-				return 1;
-			}
-			if(!match){
-				cout<<"\n\tWrong password. You are not authorized to use this database."<<endl<<endl;
+			if(!usermatch){
+				cout<<"\n\tYou are not authorized to use this database!"<<endl<<endl;
 				f('x');
-					g();c();
-					system("clear");
+				getchar();
+				getchar();
+				system("clear");
 				return signin(d);
 			}
+			else {
+				cout<<"\n\tEnter master pass: ";
+				cin>>pass;
+				if(strcmp(d.pass, pass)==0){
+					match=1;
+					return 1;
+				}
+				if(!match){
+					cout<<"\n\tWrong password. You are not authorized to use this database."<<endl<<endl;
+					f('x');
+						g();c();
+						system("clear");
+					return signin(d);
+				}
 
-		}
+			}
 }
 
 int main(){

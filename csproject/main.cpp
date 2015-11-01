@@ -42,14 +42,14 @@ public:
 	int AdminMenu(){
         system("clear");
         f('x');
-        cout<<"Welcome admin.\n\n";
+        cout<<"\n\t\t\tWELCOME ADMIN\n";
         f('x');
         cout<<endl;
         f('-');
         cout<<"1) Add new flight schedule"<<endl;
-        cout<<"2) Delete a flight schedule"<<endl;
+        cout<<"2) Modify a flight schedule"<<endl;
         cout<<"3) View bookings log"<<endl;
-        cout<<"4) Delete an user"<<endl;
+        cout<<"4) Display all flights"<<endl;
         cout<<"5) Change admin password"<<endl;
 		f('-');
 		cout<<"\nENTER AN OPTION: ";
@@ -59,14 +59,13 @@ public:
 	}
 	int UserMenu(char* user){
 		f('x');
-        cout<<"Welcome "<<user<<".\n";
+        cout<<"\n\t\t\tWelcome "<<user<<".\n";
         f('x');
         f('-');
         cout<<"1) Book a flight"<<endl;
-        cout<<"2) View status"<<endl;
-        cout<<"3) View Transaction Log"<<endl;
-        cout<<"4) Cancel your flight"<<endl;
-        cout<<"5) Logout"<<endl;
+        cout<<"2) View Booked Log"<<endl;
+        cout<<"3) Cancel your flight"<<endl;
+        cout<<"4) Logout"<<endl;
 		f('-');
 		cout<<endl<<"ENTER AN OPTION: ";
         int op3;
@@ -83,7 +82,7 @@ struct Date {
 // declaring time struct and setting the dates
 time_t now = time(0);
 tm *t = localtime(&now);
-char days[][30]={"SUNDAY", "MONDAY", "TUESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
+char days[][30]={"SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"};
 
 
 class company {
@@ -93,14 +92,17 @@ class company {
 	char admin_password[30];
 public:
 	void PostCompanyDetails(){
-		cout<<"Enter the name of your airline company"<<endl;
+		f('*');
+		cout<<endl;
+		cout<<"Enter the name of your airline company: ";
 		gets(name);
-		cout<<"Enter the location of your airline company"<<endl;
+		cout<<"Enter the location of your airline company: ";
 		gets(location);
-		cout<<"Enter the total number of flights available"<<endl;
+		cout<<"Enter the total number of flights available: ";
 		cin>>totalflights;
-		cout<<endl<<"Enter admin password"<<endl;
+		cout<<"Enter admin password: ";
 		cin>>admin_password;
+		f('*');
 	}
 	char* CompanyName(){
 		return name;
@@ -132,15 +134,34 @@ public:
 class flight {
 
 private:
-	int full;
+	int filled;
 public:
 	flight(){
-		full=0;
+		filled=0; //number of filled seats
 	}
 	char fname[30];
 	long fnum;
 	int dey;
 	int tseats; //total number of seats
+	char from[30], to[30];
+	void output(){
+	cout<<endl<<fnum<<" : "<<fname<<" : "<<from<<" : "<<days[dey]<<" : "<<tseats<<";";
+	}
+	void useroutput(){
+		cout<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" : "<<tseats-filled<<";";
+	}
+	void bookie(user a){
+		char filename[30];
+		fstream userfile(a.username, ios::app);
+		fstream adminfile("adminlog.txt", ios::app)
+		userfile<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" ; "<<endl;
+		adminfile<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" ; "<<endl;
+		filled++;
+		cout<<"Booking...";
+		system("clear");
+		system("sleep 3");
+
+	}
 };
 void addflight(){
 	fstream f("flights.dat", ios::app | ios::binary);
@@ -149,6 +170,10 @@ void addflight(){
 	cin>>fly.fname;
 	cout<<"Flight number: ";
 	cin>>fly.fnum;
+	cout<<"From: ";
+	cin>>fly.from;
+	cout<<"To: ";
+	cin>>fly.to;
 	cout<<"Total number of seats: ";
 	cin>>fly.tseats;
 	cout<<"Number of operational days: ";
@@ -165,15 +190,82 @@ void addflight(){
 	f.close();
 	return;
 }
+
+void modifyflight(){
+	f('x');cout<<endl;
+	cout<<"\n\tEnter the flight number: ";
+	int num;
+	cin>>num;
+	fstream f("flights.dat", ios::in | ios::out | ios::binary);
+	int pos = 0; 
+	int succ=0;
+	flight s;
+	while(f.read((char *)&s, sizeof(s))){
+		if(s.fnum==num){
+			f.seekg(pos);
+			//input the detaisl
+			cout<<"Flight name: ";
+			cin>>s.fname;
+			cout<<"Flight number: ";
+			cin>>s.fnum;
+			cout<<"From: ";
+			cin>>s.from;
+			cout<<"To: ";
+			cin>>s.to;
+			cout<<"Total number of seats: ";
+			cin>>s.tseats;
+			cout<<"Number of operational days: ";
+			int opdays; cin>>opdays;
+			cout<<"1)SUNDAY\n2)MONDAY\n3)TUESDAY\n4)WEDNESDAY\n5)THURSDAY\n6)FRIDAY\n7)SATURDAY"<<endl;
+			cout<<"Enter the operational days with spaces. Eg 1 3 5"<<endl;
+			int n;
+			for(int i=1;i<=opdays;i++){
+				cin>>n;
+				s.dey=n-1;
+				f.write((char*)&s, sizeof(s));
+			}
+			cout<<"Flight Schedule successfully stored."<<endl;
+			f.close();
+			succ=1;
+		}
+		pos=f.tellg();
+	}
+	if(!succ){
+		cout<<"\n\tFlight not found.\n";
+		g();
+		cout<<"\n\tPress enter to return to the menu.\n";
+		for(int i=0;i<80;i++)cout<<"x";
+
+		g();
+	}
+}
+void displayflights(){
+	fstream fx("flights.dat", ios::in | ios::binary);
+	flight s;
+	f('x');
+	cout<<"FlightNumber : FlightName : From : To : Days : TotalSeats;";
+	f('x');
+	while(fx.read((char *)&s, sizeof(s))){
+	f('-');
+	s.output();
+	f('-');
+	cout<<endl;
+	}
+	getchar();
+	getchar();
+
+}
 void Decision2(){
 	int op2;
 	op2 = ui.AdminMenu();
 	switch(op2){
 		case 1:
 			addflight();
+			Decision2();
 			break;
 		case 2:
-			//umm delete flight. idk if am gonna implement this. lets see. time will say.
+			modifyflight();
+			Decision2();
 			break;
 		case 3:
 			//bookings log. great.
@@ -184,7 +276,8 @@ void Decision2(){
 			//so skipping this for now
 			break;
 		case 4:
-			//delete an user. i dont think this would be useful in this scenario.
+			displayflights();
+			Decision2();
 			break;
 		case 5:
 			//change admin password. simple shit. to the last.
@@ -193,6 +286,56 @@ void Decision2(){
 			cout<<"Please enter a valid input";
 			Decision2();
 			return;
+	}
+}
+void book(user a){
+	f('*');
+	cout<<"\n\t\t\tBOOKING\n";
+	f('*');
+	f('-');
+	cout<<endl<<"Enter your location: ";
+	char location[30];
+	cin>>location;
+	cout<<"1) Show all flights"<<endl;
+	cout<<"2) Search flights by destination"<<endl;
+	cout<<"3) Change your location"<<endl;
+	int opt41;
+	cin>>opt41;
+	fstream fgt("flights.dat", ios::in | ios::binary);
+	flight f;
+	if(opt41==1){
+		int i=1;
+		cout<<"FlightNumber : FlightName : From : To : Day : AvailableSeats;";
+		while(fgt.read((char *)&f, sizeof(f))){
+			if(strcmp(f.from, location)==0){
+				cout<<endl;
+				cout<<i<<")	 ";
+				f.useroutput();
+				cout<<endl;
+			}
+		}
+		cout<<"Select your flight: ";
+		int j;
+		cin>>j;
+		fgt.seekg((j-1)*sizeof(f)); //am moving the file pointer to the selected flight
+		fgt.read((char *)&f, sizeof(f));
+		f.bookie(a); //where all the booking magic happens	
+		cout<<"Flight successfully booked.";
+		cout<<endl;
+	}
+	return ;
+}
+void Decision3(user a){
+	int opt4 = ui.UserMenu(a.username);
+	switch(opt4){
+		case 1:
+			system("clear");
+			book(a);
+			Decision3(a);
+			break;
+		default:
+			cout<<"Invalid option.";
+			Decision3(a);
 	}
 }
 void signin(){
@@ -236,7 +379,7 @@ void signin(){
             getchar();
             getchar();
             system("clear");
-            ui.UserMenu(chkuser.username);
+            Decision3(chkuser);
             return;
         }
         else{
