@@ -6,9 +6,11 @@
 #include <stdio.h>
 using namespace std;
 
-void gc(){
-	getchar();
+void c(){
 	system("clear");
+}
+void g(){
+	getchar();
 }
 class details {
 	public:
@@ -71,7 +73,7 @@ for(int i=0;i<80;i++)cout<<"x";
 			if(!match){
 				cout<<"\n\tWrong password. You are not authorized to use this database."<<endl<<endl;
 				for(int i=0;i<80;i++)cout<<"x";
-					gc();
+					g();c();
 					system("clear");
 				return signin(d);
 			}
@@ -79,7 +81,7 @@ for(int i=0;i<80;i++)cout<<"x";
 		}
 }
 int main(){
-	gc();
+	g();c();
 	fstream login;
 	details d;
 	login.open("details.dat", ios::in | ios::binary);
@@ -102,9 +104,45 @@ int main(){
 		login.read((char*)&d, sizeof(d));
 		system("clear");
 	}
-	if(signin(d)){	
+	if(signin(d)){
+		system("clear");
+		int opt;
+		do{	
 		for(int i=0;i<80;i++)cout<<"x";cout<<endl;
-		cout<<"\n \t \t \t \tMENU"<<endl;
-		for(int i=0;i<80;i++)cout<<"x";cout<<endl;
+		cout<<"\n\t\t\t\t\tMENU"<<endl<<endl;
+		for(int i=0;i<80;i++)cout<<"x";cout<<endl<<endl;
+		cout<<"\n\t1)Add report card\n";
+		cout<<"\n\t2)Display grades\n";
+		cout<<"\n\t3)Modify/Delete report\n";
+		cout<<"\n\t4)Number of Pass/Fail\n";
+		cout<<"\n\t5)Display report card\n";
+		cout<<"\n\t6)Exit\n";
+		cout<<"\n\n\n\n";
+		cout<<"\tENTER YOUR OPTION: ";
+		cin>>opt;
+		switch(opt){
+			case 1:
+				// add();
+				break;
+			case 2:
+				// displaygrades();
+				break;
+			case 3:
+				// modifydelete();
+				break;
+			case 4:
+				// numpassfail();
+				break;
+			case 5:
+				// display();
+				break;
+			case 6:
+				system("exit");
+				break;
+			default:
+				cout<<"\n\tInvalid Input"; g();
+		}
+		}
+		while(opt!=6);
 	}	
 }
