@@ -209,8 +209,6 @@ cout<<endl;f('x');
 }
 };
 
-
-
 void add(){
 	cout<<endl;
 	f('x');
@@ -256,10 +254,6 @@ void modify(){
 	}
 }
 
-
-
-
-
 void numpassfail(){
 	f('x');cout<<"\n\t\t\t\t PASS/FAIL";
 	ifstream f("reports.dat", ios::binary);
@@ -279,11 +273,6 @@ void numpassfail(){
 	g();
 	c();
 }
-
-
-
-
-
 
 void display(){
 	fstream reps("reports.dat", ios::in | ios::binary);
@@ -319,16 +308,6 @@ void display(){
 	g();
 	c();
 }	
-
-
-
-
-
-
-
-
-
-
 int signin(details d){
 cout<<endl;
 system("clear");
@@ -371,14 +350,6 @@ f('x');
 
 		}
 }
-
-
-
-
-
-
-
-
 
 int main(){
 	g();c();

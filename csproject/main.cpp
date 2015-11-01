@@ -6,6 +6,17 @@
 #include <stdio.h>
 using namespace std;
 long uc;
+void f(char xx){
+	cout<<endl;
+	for(int i=0;i<80;i++) cout<<xx;
+	cout<<endl;
+}
+void g(){
+	getchar();
+}
+void cls(){
+	system("clear");
+}
 class Interface {
 public:
 	Interface(){
@@ -13,35 +24,51 @@ public:
 	}
 	void Welcome(char* cname){
 		system("clear");
-		cout<<"Welcome to the "<<cname<<" reservation system"<<endl;
+		f('x');
+		cout<<"\n\t\t\tWelcome to the "<<cname<<" reservation system"<<endl;
+		f('x'); cout<<endl; cout<<endl;
 	}
 	int LoginMenu(){
-		cout<<"Press the option you wish to enter: "<<endl;
+		f('-');
+		cout<<"\nPress the option you wish to enter: "<<endl;
 		cout<<"1)Sign In"<<endl;
 		cout<<"2)Sign Up"<<endl;
+		f('-');
+		cout<<endl;
 		int op1;
 		cin>>op1;
 		return op1;
 	}
 	int AdminMenu(){
         system("clear");
+        f('x');
         cout<<"Welcome admin.\n\n";
+        f('x');
+        cout<<endl;
+        f('-');
         cout<<"1) Add new flight schedule"<<endl;
         cout<<"2) Delete a flight schedule"<<endl;
         cout<<"3) View bookings log"<<endl;
         cout<<"4) Delete an user"<<endl;
         cout<<"5) Change admin password"<<endl;
+		f('-');
+		cout<<"\nENTER AN OPTION: ";
         int op2;
         cin>>op2;
         return op2;
 	}
 	int UserMenu(char* user){
-        cout<<"Welcome "<<user<<".\n\n";
+		f('x');
+        cout<<"Welcome "<<user<<".\n";
+        f('x');
+        f('-');
         cout<<"1) Book a flight"<<endl;
         cout<<"2) View status"<<endl;
         cout<<"3) View Transaction Log"<<endl;
         cout<<"4) Cancel your flight"<<endl;
         cout<<"5) Logout"<<endl;
+		f('-');
+		cout<<endl<<"ENTER AN OPTION: ";
         int op3;
         cin>>op3;
         return op3;
@@ -301,12 +328,22 @@ int main(){
 	if(!com){
         com.close();
         com.open("company_info.dat", ios::out | ios::binary);
+
+        f('+');
+        cout<<endl;
 		cout<<"Welcome to the airline project.\nYou have to configure this first in order for it to work.\n";
+		f('+');
+		cout<<endl;
 		getchar();
+		cls();
+		f('-');
+		cout<<endl;
 		cout<<"Enter the following details: "<<endl<<endl;
 		c.PostCompanyDetails();
 		com.write((char*)&c, sizeof(c));
 		cout<<"Configuration Done.\nSoftware is ready to roll"<<endl;
+		f('-');
+		cout<<endl;
 		com.close();
 		cout<<"Press enter to continue"<<endl;
 		strcpy(admin.username, "admin");
