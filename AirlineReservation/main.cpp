@@ -112,6 +112,8 @@ public:
 	}
 
 };
+
+
 class user {
 public:
 	char username[30];
@@ -129,6 +131,20 @@ public:
 			return 0;
 		}
 	}
+	void dislplaylog(){
+		ifstream ulog(username);
+		system("clear");
+		cout<<"FlightNum : FlightName : From : To : Day : SeatsBooked "<<endl;
+		char buff[100];
+		while(!ulog.eof()){
+			ulog>>buff;
+			cout<<buff<<" ";
+	}
+	g();
+	getchar();
+	system("clear");
+	return;
+		}
 }admin;
 
 class flight {
@@ -148,19 +164,23 @@ public:
 	cout<<endl<<fnum<<" : "<<fname<<" : "<<from<<" : "<<days[dey]<<" : "<<tseats<<";";
 	}
 	void useroutput(){
-		cout<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" : "<<tseats-filled<<";";
+		cout<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" : "<<filled<<"/"<<tseats<<";";
 	}
 	void bookie(user a){
 		char filename[30];
-		fstream userfile(a.username, ios::app);
-		fstream adminfile("adminlog.txt", ios::app)
-		userfile<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" ; "<<endl;
-		adminfile<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" ; "<<endl;
-		filled++;
+		fstream userfile(a.username, ios::app); //opening the log of the user in append mode
+		fstream adminfile("adminlog.txt", ios::app); //opening the admin log in appendmode
+		cout<<"Enter number of seats to book: ";
+		int nos;
+		do{
+			cin>>nos;
+		}while((nos<0 && cout<<"Number of seats must be greater than 0"<<endl) || (nos>(tseats-filled) && cout<<"Sorry only "<<tseats-filled<<" seats available."<<endl) && cout<<"Enter number of seats again:");
+		filled=filled+nos;
+		userfile<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" : "<<nos<<" ; "<<endl;
+		adminfile<<a.username<<" : "<<fnum<<" : "<<fname<<" : "<<from<<" : "<<to<<" : "<<days[dey]<<" : "<<nos<<" ; "<<endl;
 		cout<<"Booking...";
+		getchar();
 		system("clear");
-		system("sleep 3");
-
 	}
 };
 void addflight(){
@@ -229,6 +249,7 @@ void modifyflight(){
 			succ=1;
 		}
 		pos=f.tellg();
+		g();
 	}
 	if(!succ){
 		cout<<"\n\tFlight not found.\n";
@@ -268,12 +289,8 @@ void Decision2(){
 			Decision2();
 			break;
 		case 3:
-			//bookings log. great.
-			//maybe in the company class
-			//create a main_log.txt
-			//copy all log entries there.
-			//need to do user log entry first.
-			//so skipping this for now
+			//adminlogtxt();
+			Decision2();
 			break;
 		case 4:
 			displayflights();
@@ -315,13 +332,18 @@ void book(user a){
 			}
 		}
 		cout<<"Select your flight: ";
-		int j;
-		cin>>j;
-		fgt.seekg((j-1)*sizeof(f)); //am moving the file pointer to the selected flight
+		int whichflight;
+		cin>>whichflight;
+		fgt.seekg((whichflight-1)*sizeof(f)); //am moving the file read pointer to the selected flight
 		fgt.read((char *)&f, sizeof(f));
-		f.bookie(a); //where all the booking magic happens	
-		cout<<"Flight successfully booked.";
+		f.bookie(a); //this function handles care of the booking and modifies the flight object
+		//need to write the file again
+		fgt.seekp(-sizeof(f), ios::cur); //am moving the file write pointer to the selected flight
+		fgt.write((char *)&f, sizeof(f));
+		cout<<endl<<"Flight successfully booked.";
 		cout<<endl;
+		getchar();
+		system("clear");
 	}
 	return ;
 }
@@ -332,7 +354,12 @@ void Decision3(user a){
 			system("clear");
 			book(a);
 			Decision3(a);
+			return;
 			break;
+		case 2:
+			system("clear");
+			a.dislplaylog();
+			Decision3(a);
 		default:
 			cout<<"Invalid option.";
 			Decision3(a);

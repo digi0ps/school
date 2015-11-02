@@ -1,0 +1,3 @@
+digi : 321 : B2C : Bangalore : Chennai : FRIDAY : 10 ; 
+digi : 321 : B2C : Bangalore : Chennai : FRIDAY : 1 ; 
+digi : 321 : B2C : Bangalore : Chennai : FRIDAY : 5 ; 
