@@ -1,3 +1,17 @@
 digi : 321 : B2C : Bangalore : Chennai : FRIDAY : 10 ; 
 digi : 321 : B2C : Bangalore : Chennai : FRIDAY : 1 ; 
 digi : 321 : B2C : Bangalore : Chennai : FRIDAY : 5 ; 
+digi : 123 : CtoB : Chennai : Bangalore : MONDAY : 10 ; 
+digi : 9840 : Sriram : SriramHouse : HerHouse : THURSDAY : 5 ; 
+digi : 9840 : Sriram : SriramHouse : HerHouse : THURSDAY : 2 ; 
+hi : 1234 : Chiiram : Sriram : CPS : THURSDAY : 1 ; 
+hi : 1234 : Chiiram : Sriram : CPS : THURSDAY : 4 ; 
+hi : 1234 : Chiiram : Sriram : CPS : THURSDAY : 3 ; 
+digi : 1234 : Chiiram : Sriram : CPS : THURSDAY : 4;
+
+digi : 1234 : Chiiram : Sriram : CPS : THURSDAY : 6;
+
+digi : 464 : Photo : Sriram : BITS : TUESDAY : 1;
+
+digi : 3564 : dgadg : Chennai : Bangalore : WEDNESDAY : 10;
+
